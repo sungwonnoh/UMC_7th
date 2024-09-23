@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mission 2</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .header {
+        display: flex;
+        background-color: black;
+        color: white;
+      }
+      .header-item {
+        flex-grow: 1;
+        padding: 20px;
+        text-align: center;
+      }
+      .menu {
+        flex-grow: 2;
+        background-color: red;
+        padding: 20px;
+        text-align: center;
+      }
+      .hero {
+        background-color: steelblue;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+      }
+      .content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        flex: 1;
+      }
+      .main {
+        background-color: navy;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60%;
+      }
+      .sidebar {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+      }
+      .image {
+        background-color: lightblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .extra {
+        background-color: mediumseagreen;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .banner {
+        background-color: gold;
+        text-align: center;
+        padding: 20px;
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="header-item">HEADER</div>
+        <div class="menu">MENU</div>
+      </div>
+      <div class="hero">HERO</div>
+      <div class="content">
+        <div class="main">MAIN</div>
+        <div class="sidebar">
+          <div class="image">IMAGE</div>
+          <div class="extra">EXTRA</div>
+        </div>
+      </div>
+      <div class="banner">BANNER</div>
+    </div>
+  </body>
+</html>
