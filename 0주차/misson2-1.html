@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>mission 1</title>
     <style>
       .header {
         display: flex;
@@ -26,12 +26,25 @@
         font-size: large;
       }
       .nav {
+        display: flex;
+        justify-content: flex-end;
         gap: 20px;
+        flex-grow: 1;
+        margin-left: 20px;
       }
       .btn {
         border: 0;
         background-color: transparent;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 10px;
       }
+
+      @media (max-width: 768px) {
+        .nav {
+          justify-content: space-around;
+        }
+      } /* 닫는 중괄호 추가 */
     </style>
   </head>
   <body>
@@ -39,11 +52,13 @@
       <div class="logo">
         <img
           src="https://upload.wikimedia.org/wikipedia/ko/c/c3/%ED%95%9C%EA%B5%AD%EC%99%B8%EA%B5%AD%EC%96%B4%EB%8C%80%ED%95%99%EA%B5%90_%EB%A1%9C%EA%B3%A0.png"
+          alt="HUFS Logo"
         />
         <span class="name">HUFS</span>
       </div>
 
-      <nav>
+      <nav class="nav">
+        <!-- nav 클래스 추가 -->
         <button class="btn">PROJECTS</button>
         <button class="btn">MEMBERS</button>
         <button class="btn">NOTICE</button>
