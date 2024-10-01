@@ -3,6 +3,7 @@ import { MOVIES } from "../mocks/api";
 
 export default function Card() {
   const [selectedMovie, setSelectedMovie] = useState(null);
+  //[현재 state, state를 변경하기 위한 함수] -> 상태관리
 
   const onMouseEnter = (movie) => {
     setSelectedMovie(movie);
