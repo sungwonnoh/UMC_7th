@@ -6,6 +6,7 @@ import SignUp from "./pages/signup";
 import Login from "./pages/login";
 import Search from "./pages/search";
 import Movies from "./pages/movies";
+import NowPlaying from "./pages/now-playing";
 
 const router = createBrowserRouter([
   {
@@ -31,7 +32,9 @@ const router = createBrowserRouter([
       {
         path: "movies",
         element: <Movies />,
+        children: [{ path: "now-playing", element: <NowPlaying /> }],
       },
+      //{ path: "movies/now-playing", element: <NowPlaying /> },
     ],
   },
 ]);
