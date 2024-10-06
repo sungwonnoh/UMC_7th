@@ -16,11 +16,17 @@ const Logo = styled.div`
 `;
 const NavItems = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 20px;
 `;
 const NavItem = styled.div`
   color: white;
   cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  display: inline-block;
+  &:hover {
+    background-color: crimson;
+  }
 `;
 export default function Navbar() {
   const navigate = useNavigate();
@@ -30,8 +36,8 @@ export default function Navbar() {
       <Nav>
         <Logo onClick={() => navigate("/")}>NETFLIX</Logo>
         <NavItems>
-          <NavItem>로그인</NavItem>
-          <NavItem>회원가입</NavItem>
+          <NavItem onClick={() => navigate("/login")}>로그인</NavItem>
+          <NavItem onClick={() => navigate("/signup")}>회원가입</NavItem>
         </NavItems>
       </Nav>
     </>
