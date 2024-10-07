@@ -7,6 +7,10 @@ import Login from "./pages/login";
 import Search from "./pages/search";
 import Movies from "./pages/movies";
 import NowPlaying from "./pages/now-playing";
+import Popular from "./pages/popular";
+import TopRated from "./pages/top-rated";
+import Upcoming from "./pages/up-coming";
+import Home from "./pages/home";
 
 const router = createBrowserRouter([
   {
@@ -15,7 +19,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Card />,
+        element: <Home />,
       },
       {
         path: "signup",
@@ -32,7 +36,24 @@ const router = createBrowserRouter([
       {
         path: "movies",
         element: <Movies />,
-        children: [{ path: "now-playing", element: <NowPlaying /> }],
+        children: [
+          {
+            path: "now-playing",
+            element: <NowPlaying />,
+          },
+          {
+            path: "popular",
+            element: <Popular />,
+          },
+          {
+            path: "top-rated",
+            element: <TopRated />,
+          },
+          {
+            path: "up-coming",
+            element: <Upcoming />,
+          },
+        ],
       },
       //{ path: "movies/now-playing", element: <NowPlaying /> },
     ],

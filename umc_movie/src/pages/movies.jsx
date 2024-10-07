@@ -22,7 +22,7 @@ const moviesData = [
   },
   {
     text: "개봉 예정중인",
-    path: "/movies/upcoming",
+    path: "/movies/up-coming",
   },
 ];
 

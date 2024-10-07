@@ -1,6 +1,5 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { MOVIES } from "../mocks/api";
 
 const Wrapper = styled.div`
   display: flex;
@@ -47,7 +46,7 @@ const MovieDate = styled.div`
   margin-top: 5px;
 `;
 
-export default function Card() {
+export default function Card({ movies }) {
   const [selectedMovie, setSelectedMovie] = useState(null);
 
   const onMouseEnter = (movie) => {
@@ -60,9 +59,9 @@ export default function Card() {
 
   return (
     <Wrapper>
-      {MOVIES.results.map((movie, i) => (
+      {movies.map((movie) => (
         <MovieCard
-          key={i}
+          key={movie.id}
           onMouseEnter={() => onMouseEnter(movie)}
           onMouseLeave={onMouseLeave}
         >
