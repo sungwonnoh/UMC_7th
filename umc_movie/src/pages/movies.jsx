@@ -5,8 +5,11 @@ import Category from "../component/category";
 const MovieWrapper = styled.div`
   display: flex;
   gap: 20px;
+  margin-left: 20px;
 `;
-
+const Title = styled.h1`
+  margin-left: 20px;
+`;
 const moviesData = [
   {
     text: "현재 상영중인",
@@ -36,7 +39,7 @@ export default function Movies() {
     <div>
       {isCategoryPage && (
         <>
-          <h1>카테고리</h1>
+          <Title>카테고리</Title>
           <MovieWrapper>
             {moviesData.map((movie, index) => (
               <Category key={index} text={movie.text} path={movie.path} />

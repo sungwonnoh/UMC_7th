@@ -14,11 +14,12 @@ const MainLayout = styled.div`
   margin-top: 60px;
   height: calc(100vh - 60px);
   margin-left: 250px;
+  //background-color: lightslategray;
 `;
 
 const OutletWrapper = styled.div`
   flex: 1;
-  padding: 20px;
+  //padding: 20px;
 `;
 export default function RootLayout() {
   return (

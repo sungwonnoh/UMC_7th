@@ -4,7 +4,7 @@ const Nav = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lightcoral;
+  background-color: #00043b;
   height: 50px;
   padding: 5px 20px;
 `;

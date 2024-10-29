@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   height: 100%;
   position: fixed;
   left: 0;
-  background-color: salmon;
+  background-color: #00043b;
 `;
 const SideItems = styled.div`
   gap: 20px;

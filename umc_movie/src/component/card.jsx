@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -48,7 +49,7 @@ const MovieDate = styled.div`
 
 export default function Card({ movies }) {
   const [selectedMovie, setSelectedMovie] = useState(null);
-
+  const navigate = useNavigate();
   const onMouseEnter = (movie) => {
     setSelectedMovie(movie);
   };
@@ -56,7 +57,9 @@ export default function Card({ movies }) {
   const onMouseLeave = () => {
     setSelectedMovie(null);
   };
-
+  const handleClick = (movie_id) => {
+    navigate(`/movies/${movie_id}`);
+  };
   return (
     <Wrapper>
       {movies.map((movie) => (
@@ -64,6 +67,7 @@ export default function Card({ movies }) {
           key={movie.id}
           onMouseEnter={() => onMouseEnter(movie)}
           onMouseLeave={onMouseLeave}
+          onClick={() => handleClick(movie.id)}
         >
           <div>
             {selectedMovie === movie ? <Overlay /> : null}
