@@ -3,6 +3,8 @@ import Credit from "../component/Credit";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useCustomDetail from "../hooks/useCustomDetail";
+import { ClipLoader } from "react-spinners";
 
 const Wrapper = styled.div``;
 
@@ -62,31 +64,23 @@ const Rating = styled.div``;
 const Overview = styled.div`
   margin-top: 10px;
 `;
+const LoadingWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+`;
 
 export default function Detail() {
   const { movie_id } = useParams();
-  const [movie, setMovie] = useState({});
-
-  useEffect(() => {
-    // 영화 세부 정보 가져오기
-    const getMovieDetails = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/${movie_id}?language=ko`,
-          {
-            headers: {
-              Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
-            },
-          }
-        );
-        setMovie(response.data);
-      } catch (error) {
-        console.error("Error fetching movie details:", error);
-      }
-    };
-
-    getMovieDetails();
-  }, [movie_id]);
+  const { movie, loading, error } = useCustomDetail(movie_id);
+  if (loading)
+    return (
+      <LoadingWrapper>
+        <ClipLoader color="black" loading={loading} size={50} />
+      </LoadingWrapper>
+    );
+  if (error) return <div>{error}</div>;
 
   return (
     <div>

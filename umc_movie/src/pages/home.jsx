@@ -1,3 +1,16 @@
+// Home.jsx
+import useFetchData from "../hooks/useFetchData";
+import Card from "../component/Card";
+
 export default function Home() {
-  return <></>;
+  const {
+    data: movies,
+    isLoading,
+    isError,
+  } = useFetchData(`/movie/popular?language=ko-kr`);
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Failed to load movies.</div>;
+
+  return <Card movies={movies} />;
 }
