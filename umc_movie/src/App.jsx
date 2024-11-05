@@ -12,6 +12,7 @@ import TopRated from "./pages/top-rated";
 import Upcoming from "./pages/up-coming";
 import Home from "./pages/home";
 import Detail from "./pages/detailPage";
+import { AuthProvider } from "./context/AuthContext";
 
 const router = createBrowserRouter([
   {
@@ -64,7 +65,11 @@ const router = createBrowserRouter([
   },
 ]);
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <AuthProvider>
+      <RouterProvider router={router} />;
+    </AuthProvider>
+  );
 }
 
 export default App;
