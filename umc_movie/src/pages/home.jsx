@@ -1,6 +1,5 @@
-// Home.jsx
 import useFetchData from "../hooks/useFetchData";
-import Card from "../component/Card";
+import Card from "../component/card";
 
 export default function Home() {
   const {

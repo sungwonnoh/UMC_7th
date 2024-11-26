@@ -1,4 +1,3 @@
-// useFetchData.js
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../apis/axios-instance";
 

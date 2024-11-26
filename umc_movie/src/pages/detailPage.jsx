@@ -74,6 +74,7 @@ const LoadingWrapper = styled.div`
 export default function Detail() {
   const { movie_id } = useParams();
   const { movie, loading, error } = useCustomDetail(movie_id);
+
   if (loading)
     return (
       <LoadingWrapper>

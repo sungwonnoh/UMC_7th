@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 import Card from "../component/card";
-import axios from "axios";
-const API_KEY = "1f329821df085bdfe67fce7f8779e644";
+import { useGetMovies } from "../hooks/queries/useGetMovies";
+import { useQuery } from "@tanstack/react-query";
 
-export default function TopRated() {
-  const [movies, setMovies] = useState([]);
+export default function NowPlaying() {
+  const { data, loading, error } = useQuery({
+    queryFn: useGetMovies({ category: "top_rated", pageParam: 1 }),
+    queryKey: ["movies", "top_rated"],
+    cacheTime: 10000,
+    staleTime: 10000,
+  });
 
-  useEffect(() => {
-    const getMovies = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&watch_region=KR&language=ko&page=1`
-        );
-        setMovies(response.data.results);
-      } catch (error) {
-        console.error("Error fetching movies:", error);
-      }
-    };
+  console.log(data);
 
-    getMovies();
-  }, []);
-  return <Card movies={movies} />;
+  if (loading)
+    return (
+      <LoadingWrapper>
+        <ClipLoader color="black" loading={loading} size={50} />
+      </LoadingWrapper>
+    );
+  if (error) return <div>{error}</div>;
+  return <Card movies={data || []} />;
 }

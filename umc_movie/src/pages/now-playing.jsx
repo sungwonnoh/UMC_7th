@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
+import { ClipLoader } from "react-spinners";
 import Card from "../component/card";
-import axios from "axios";
+import { useGetMovies } from "../hooks/queries/useGetMovies";
+import { useQuery } from "@tanstack/react-query";
 
 export default function NowPlaying() {
-  const [movies, setMovies] = useState([]);
+  const { data, loading, error } = useQuery({
+    queryFn: useGetMovies({ category: "now_playing", pageParam: 1 }),
+    queryKey: ["movies", "now_playing"],
+    cacheTime: 10000,
+    staleTime: 10000,
+  });
 
-  useEffect(() => {
-    const getMovies = async () => {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1`,
-        {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_TMDB_TOKEN}`,
-          },
-        }
-      );
-      setMovies(response.data.results); // 올바른 응답 구조로 변경
-    };
-    getMovies();
-  }, []);
+  console.log(data);
 
-  return <Card movies={movies} />;
+  if (loading)
+    return (
+      <LoadingWrapper>
+        <ClipLoader color="black" loading={loading} size={50} />
+      </LoadingWrapper>
+    );
+  if (error) return <div>{error}</div>;
+  return <Card movies={data || []} />;
 }
